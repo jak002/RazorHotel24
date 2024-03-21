@@ -1,0 +1,31 @@
+﻿@page
+@model RazorHotel24.Pages.Rooms.DeleteModel
+@{
+    ViewData["Title"] = "Roomn't";
+}
+
+<h1 class="display-4">Make room fuck off</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.Name" />
+    <div class="form-group">
+        <label>Room number</label> : @Model.DeleteRoom.RoomNr <br />
+        <label>Room type</label> : @if(Model.DeleteRoom.Types == 'S')
+        {
+        <span>Single</span>
+        }
+        else if (Model.DeleteRoom.Types == 'D')
+        {
+        <span>Double</span>
+        }
+        else if (Model.DeleteRoom.Types == 'F')
+        {
+        <span>Family</span>
+        } <br />
+        <label>Room price</label> : @Model.DeleteRoom.Pris <br />
+
+        <input type="submit" asp-page-handler="Delete" asp-route-delNumber="@Model.DeleteRoom.HotelNr" asp-route-delRoom="@Model.DeleteRoom.RoomNr" class="btn btn-danger" value="Delete room" />
+
+        <input type="submit" value="Cancel" class="btn btn-warning" asp-page-handler="Cancel" asp-route-delNumber="@Model.DeleteRoom.HotelNr" />
+    </div>
+</form>

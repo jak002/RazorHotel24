@@ -1,0 +1,27 @@
+﻿@page
+@model RazorHotel24.Pages.Hotels.EditModel
+@{
+    ViewData["Title"] = "Make hotel more betterified";
+}
+
+<h1 class="display-1">uueeueuurugrh</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.HotelToUpdate.HotelNr" class="control-label"></label>
+        <input asp-for="@Model.HotelToUpdate.HotelNr" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.HotelToUpdate.Navn" class="control-label"></label>
+        <input asp-for="@Model.HotelToUpdate.Navn" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.HotelToUpdate.Adresse" class="control-label"></label>
+        <input asp-for="@Model.HotelToUpdate.Adresse" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Update" asp-page-handler="Update" class="btn btn-primary" />
+        <input type="submit" value="Cancel" asp-page-handler="Cancel" class="btn btn-primary" />
+    </div>
+</form>

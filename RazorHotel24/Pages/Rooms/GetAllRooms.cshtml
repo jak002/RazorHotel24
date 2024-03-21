@@ -1,0 +1,59 @@
+﻿@page
+@model RazorHotel24.Pages.Rooms.GetAllRoomsModel
+@{
+    ViewData["Title"] = "rorms";
+}
+
+<h2 style="color: darkslateblue" class="display-4"> List of rooms for @Model.Name</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Room number
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Rooms.Count() != 0)
+        {
+            @foreach (var item in Model.Rooms)
+            {
+                <tr>
+                    <td>
+                        @item.RoomNr
+                    </td>
+                    <td>
+                        @if (item.Types == 'S')
+                        {
+                            <span>Single</span>
+                        } else if (item.Types == 'D')
+                        {
+                            <span>Double</span>
+                        } else if (item.Types == 'F')
+                        {
+                            <span>Family</span>
+                        }
+
+                    </td>
+                    <td>
+                        @item.Pris
+                    </td>
+                    <td>
+                        <p>
+                            <a asp-page="/Rooms/Delete" asp-route-hotelnr="@item.HotelNr" asp-route-roomnr="@item.RoomNr" asp-route-hname="@Model.Name">Delete</a>|
+                            <a asp-page="/Rooms/Edit" asp-route-hotelnr="@item.HotelNr" asp-route-roomnr="@item.RoomNr" asp-route-hname="@Model.Name">Edit</a>|
+                            <a asp-page="/Rooms/Book" asp-route-hotelnr="@item.HotelNr" asp-route-hname="@Model.Name">Book</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

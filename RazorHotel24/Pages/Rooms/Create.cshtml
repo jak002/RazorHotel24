@@ -1,0 +1,32 @@
+﻿@page
+@using RazorHotel24.Models
+@model RazorHotel24.Pages.Rooms.CreateModel
+@{
+    ViewData["Title"] = "Roomn'tn't";
+}
+
+<h1 class="display-1">plop new room in @Model.Name</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.HotelId" />
+    <input type="hidden" asp-for="@Model.Name" />
+    <div class="form-group">
+        <label asp-for="@Model.NewRoom.RoomNr" class="control-label"></label>
+        <input asp-for="@Model.NewRoom.RoomNr" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.RoomType" class="control-label">Room type:</label>
+        <br />
+        <select asp-for="@Model.RoomType" asp-items="Html.GetEnumSelectList<RoomType>()">
+            <option selected="selected" value="">pls choos</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewRoom.Pris" class="control-label"></label>
+        <input asp-for="@Model.NewRoom.Pris" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Bingus" class="btn btn-primary" />
+    </div>
+</form>

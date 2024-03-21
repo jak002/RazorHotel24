@@ -1,0 +1,18 @@
+﻿@page
+@model RazorHotel24.Pages.Hotels.DeleteModel
+@{
+    ViewData["Title"] = "Exorcise the chosen hotel";
+}
+
+<h1 class="display-4">Make hotel fuck off</h1>
+<form method="post">
+    <div class="form-group">
+        <label>Hotel number</label> : @Model.DeleteHotel.HotelNr <br />
+        <label>Hotel name</label> : @Model.DeleteHotel.Navn <br />
+        <label>Hotel address</label> : @Model.DeleteHotel.Adresse <br />
+
+        <input type="submit" asp-page-handler="Delete" asp-route-delNumber="@Model.DeleteHotel.HotelNr" class="btn btn-danger" value="Delete hotel" />
+
+        <input type="submit" value="Cancel" class="btn btn-warning" asp-page-handler="Cancel" />
+    </div>
+</form>

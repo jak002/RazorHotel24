@@ -1,0 +1,11 @@
+﻿@page
+@model RazorHotel24.Pages.Rooms.BookModel
+@{
+    ViewData["Title"] = "Book";
+}
+
+<h2 style="color: darkslateblue" class="display-4">Book</h2>
+
+<img src="~/img/book.png" style="position:center"/>
+
+<a asp-page="/Rooms/GetAllRooms" asp-route-cid="@Model.HotelNr" asp-route-hname="@Model.Hname">Go back</a>

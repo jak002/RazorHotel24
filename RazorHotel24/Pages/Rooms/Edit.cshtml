@@ -1,0 +1,34 @@
+﻿@page
+@using RazorHotel24.Models
+@model RazorHotel24.Pages.Rooms.EditModel
+@{
+    ViewData["Title"] = "Roomn't";
+}
+
+
+<h1 class="display-1">rearrange hotel room like sandwich</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.EditRoom.HotelNr" />
+    <input type="hidden" asp-for="@Model.Name" />
+    <div class="form-group">
+        <label asp-for="@Model.EditRoom.RoomNr" class="control-label"></label>
+        <input asp-for="@Model.EditRoom.RoomNr" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.RoomType" class="control-label">Room type:</label>
+        <br />
+        <select asp-for="@Model.RoomType" asp-items="Html.GetEnumSelectList<RoomType>()">
+            <option selected="selected" value="">pls choos</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.EditRoom.Pris" class="control-label"></label>
+        <input asp-for="@Model.EditRoom.Pris" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Update" asp-page-handler="Update" class="btn btn-primary" />
+        <input type="submit" value="Cancel" asp-page-handler="Cancel" class="btn btn-primary" />
+    </div>
+</form>
